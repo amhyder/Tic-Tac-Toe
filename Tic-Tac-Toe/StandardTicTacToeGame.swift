@@ -25,9 +25,22 @@ class StandardGame: ObservableObject {
         return model.board
     }
     
+    var winner: String {
+        if let winner = model.winner {
+            return winner
+        }
+        else {
+            return ""
+        }
+    }
+    
     //MARK: - Intent(s)
     
     func choose(_ cell: TicTacToeGame<String>.GameCell) {
         model.placePiece(chosenCell: cell)
+    }
+    
+    func newGame() {
+        model.newGame()
     }
 }
