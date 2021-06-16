@@ -12,7 +12,7 @@ import Foundation
 struct TicTacToeGame<CellContent> where CellContent: Equatable {
     private(set) var board: [GameCell] = Array<GameCell>()
     let xPiece: CellContent
-    let yPiece: CellContent
+    let oPiece: CellContent
     let blankPiece: CellContent
     private var xIsNext = true
     private(set) var gameOver = false
@@ -25,7 +25,7 @@ struct TicTacToeGame<CellContent> where CellContent: Equatable {
             if xIsNext {
                 self.board[chosenIndex].content = self.xPiece
             } else {
-                self.board[chosenIndex].content = self.yPiece
+                self.board[chosenIndex].content = self.oPiece
             }
             xIsNext.toggle()
         }
@@ -63,7 +63,7 @@ struct TicTacToeGame<CellContent> where CellContent: Equatable {
         return nil
     }
     
-    init(xPiece: CellContent, yPiece: CellContent, blankPiece: CellContent) {
+    init(xPiece: CellContent, oPiece: CellContent, blankPiece: CellContent) {
 
         // Initialize empty game board
         for index in 0..<9 {
@@ -71,7 +71,7 @@ struct TicTacToeGame<CellContent> where CellContent: Equatable {
         }
         
         self.xPiece = xPiece
-        self.yPiece = yPiece
+        self.oPiece = oPiece
         self.blankPiece = blankPiece
     }
     
