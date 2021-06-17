@@ -25,7 +25,7 @@ struct TicTacToeGame<CellContent> where CellContent: Equatable {
         if let chosenIndex = board.firstIndex(where: {$0.id == chosenCell.id}) {
             
             //Check if valid placement
-            if self.board[chosenIndex].populated {
+            if self.board[chosenIndex].populated || self.gameOver {
                 return
             }
             
