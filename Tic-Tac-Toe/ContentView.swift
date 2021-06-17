@@ -24,6 +24,7 @@ struct ContentView: View {
             LazyVGrid(columns: columns) {
                 ForEach(viewModel.board) { cell in
                     CellView(cell: cell)
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             viewModel.choose(cell)
                         }
