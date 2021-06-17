@@ -35,6 +35,10 @@ struct ContentView: View {
                 Text("The winner is \(viewModel.winner)")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 Button("New Game", action: {viewModel.newGame()})
+            } else if viewModel.winner == "" && viewModel.boardIsFull {
+                Text("Tie game!")
+                    .font(.title)
+                Button("New Game", action: {viewModel.newGame()})
             } else {
                 Text("Game in progress...")
             }

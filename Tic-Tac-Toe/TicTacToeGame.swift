@@ -18,6 +18,17 @@ struct TicTacToeGame<CellContent> where CellContent: Equatable {
     private(set) var gameOver = false
     private(set) var winner: CellContent? = nil
     
+    var boardIsFull: Bool {
+        var full = true
+        
+        for cell in self.board {
+            if !cell.populated {
+                full = false
+            }
+        }
+        return full
+    }
+    
     mutating func placePiece(chosenCell: GameCell) {
         var winner: CellContent? = nil
         
@@ -50,7 +61,12 @@ struct TicTacToeGame<CellContent> where CellContent: Equatable {
             winner = potentialwinner
         }
         
-        //Final check for winner
+        // Check for tie
+        if boardIsFull {
+            self.gameOver = true
+        }
+        
+        // Final check for winner
         if winner != nil {
             self.winner = winner
             self.gameOver = true

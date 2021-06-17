@@ -34,6 +34,10 @@ class StandardGame: ObservableObject {
         }
     }
     
+    var boardIsFull: Bool {
+        return model.boardIsFull
+    }
+    
     //MARK: - Intent(s)
     
     func choose(_ cell: TicTacToeGame<String>.GameCell) {
